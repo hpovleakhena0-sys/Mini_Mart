@@ -2,7 +2,7 @@ services:
   - type: web
     name: backend
     env: python
-    buildCommand: pip install -r requirements.txt && cd Backend && python manage.py collectstatic --noinput && python manage.py migrate
+    buildCommand: pip install -r requirements.txt && python Backend/manage.py collectstatic --noinput && python Backend/manage.py migrate
     startCommand: bash start.sh
     envVars:
       - key: DATABASE_URL
