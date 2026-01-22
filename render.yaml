@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: mini-mart-backend
+    runtime: python3
+    buildCommand: "pip install -r requirements.txt && cd Backend && PYTHONPATH=/opt/render/project/src python manage.py collectstatic --noinput && python manage.py migrate"
+    startCommand: "gunicorn Backend.wsgi:application --bind 0.0.0.0:$PORT"
+    envVars:
+      - key: DEBUG
+        value: False
+      - key: SECRET_KEY
+        generateValue: true
+      - key: ALLOWED_HOSTS
+        value: mini-mart-backend.onrender.com
+      - key: DATABASE_URL
+        value: postgresql://neondb_owner:npg_ChQP3MjYUzW8@ep-shy-cherry-a12p16wo-pooler.ap-southeast-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require
