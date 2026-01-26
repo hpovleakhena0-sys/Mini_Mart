@@ -1,8 +1,8 @@
 // API configuration and service functions
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000/api';
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://backend-fcud.onrender.com/api';
 
 // For form data uploads (images)
-export const API_BASE_FULL_URL = import.meta.env.VITE_API_BASE_URL?.replace('/api', '') || 'http://localhost:8000';
+export const API_BASE_FULL_URL = import.meta.env.VITE_API_BASE_URL?.replace('/api', '') || 'https://backend-fcud.onrender.com';
 
 export interface Product {
   id: number;
